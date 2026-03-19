@@ -39,7 +39,7 @@
             }
 
             50% {
-                left: 80%;
+                left: calc(100% - 100px);
             }
 
             100% {
@@ -108,7 +108,7 @@
     let imgTag = document.getElementById('img-tag');
     const widthWithScrollbar = window.innerWidth / 2 - 50;
     let totalScore = 0;
-    let ImgsLink = [
+    let ImgsLink1 = [
         'https://img.freepik.com/premium-photo/medicinal-neem-flower-leaves-white-background_525574-2259.jpg?w=360',
         'https://static.vecteezy.com/system/resources/thumbnails/052/782/650/small/fresh-green-mango-fruit-with-slice-and-leaf-on-transparent-background-free-png.png',
         'https://kandrafoods.com/wp-content/uploads/2021/04/Jaggery.png',
@@ -116,6 +116,7 @@
         'https://pngimg.com/d/chili_pepper_PNG15.png',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNcxpcNGz3JjmQppjt7HtP0cjLGjUeMBOLBA&s'
     ]
+    let ImgsLink = ['neemFlower.jpg','mangoFruit.png','Jaggery.png','tamarind.png','chili_pepper.png','salt.jpeg'];
     let index = 0;
     imgTag.src = ImgsLink[index];
     gameArea.addEventListener('click', () => {
@@ -147,7 +148,7 @@
         }, 1700);
 
         const diff = Math.abs(widthWithScrollbar - parseFloat(l2));
-        const accuracy = (Math.max(0, 100 - (diff / widthWithScrollbar * 100))).toFixed(2);
+        const accuracy = Math.max(0, 100 - (diff / widthWithScrollbar * 100));
         console.log(accuracy)
         totalScore += Number(accuracy);
 
